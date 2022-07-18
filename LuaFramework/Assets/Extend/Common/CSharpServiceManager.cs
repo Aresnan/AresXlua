@@ -15,7 +15,18 @@ namespace AresLuaExtend.Common
 		{
 			ASSET_SERVICE,
 			TICK_SERVICE,
-			LUA_SERIVCE
+			LUA_SERIVCE,
+			STATE,
+			ERROR_LOG_TO_FILE,
+			GAME_SYSTEM_SERVICE,
+			DOWNLOAD,
+			I18N,
+			SCENE_LOAD,
+			RENDER_FEATURE,
+			SPRITE_ASSET_SERVICE,
+			NETWORK_SERVICE,
+			COROUTINE_SERVICE,
+			VERSION
 		}
 		public static bool Initialized { get; private set; }
 		public static CSharpServiceManager Instance { get; private set; }

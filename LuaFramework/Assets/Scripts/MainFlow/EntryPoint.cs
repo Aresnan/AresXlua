@@ -9,8 +9,8 @@ public class EntryPoint : MonoBehaviour
     void Start()
     {
         LuaVM vm = new LuaVM();
-        vm.Initialize();
-        vm.Default.DoString("require 'base.main'");
+        //vm.Initialize();
+        //vm.Default.DoString("require 'base.main'");
     }
         
     void Update()
