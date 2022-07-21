@@ -9,11 +9,11 @@ public class StateService : IService
 
 	public void Destroy()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 
 	public void Initialize()
 	{
-		throw new System.NotImplementedException();
+		
 	}
 }

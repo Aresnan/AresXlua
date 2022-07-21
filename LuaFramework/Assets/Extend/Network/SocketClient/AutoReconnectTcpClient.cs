@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XLua;
 
-namespace Extend.Network
+namespace AresLuaExtend.Network
 {
 	//TODO
 	[LuaCallCSharp, CSharpCallLua]

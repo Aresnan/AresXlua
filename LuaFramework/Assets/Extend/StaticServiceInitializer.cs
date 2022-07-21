@@ -15,7 +15,7 @@ namespace AresLuaExtend
 	public static class StaticServiceInitializer
 	{
 		//This is after the Awake method has been invoked
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+		//[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
 		private static void OnInitAssembliesLoaded()
 		{
 			CSharpServiceManager.Initialize();
@@ -27,7 +27,7 @@ namespace AresLuaExtend
 			CSharpServiceManager.Register(new DownLoadService());
 		}
 
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+		//[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void OnInitBeforeSceneLoad()
 		{
 			Application.runInBackground = true;
@@ -40,7 +40,7 @@ namespace AresLuaExtend
 			CSharpServiceManager.Register(new SpriteAssetService());
 		}
 
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+		//[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
 		private static void OnSceneLoaded()
 		{
 			CSharpServiceManager.InitializeServiceGameObject();

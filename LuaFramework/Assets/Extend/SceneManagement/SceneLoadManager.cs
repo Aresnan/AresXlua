@@ -12,12 +12,12 @@ namespace AresLuaExtend.SceneManagement
 
 		public void Destroy()
 		{
-			throw new System.NotImplementedException();
+			
 		}
 
 		public void Initialize()
 		{
-			throw new System.NotImplementedException();
+			
 		}
 	}
 }

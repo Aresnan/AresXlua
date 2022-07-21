@@ -15,7 +15,7 @@ namespace AresLuaExtend.Common
 		{
 			ASSET_SERVICE,
 			TICK_SERVICE,
-			LUA_SERIVCE,
+			LUA_SERVICE,
 			STATE,
 			ERROR_LOG_TO_FILE,
 			GAME_SYSTEM_SERVICE,

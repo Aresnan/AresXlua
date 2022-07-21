@@ -1,8 +1,6 @@
 using AresLuaExtend.Asset;
 using AresLuaExtend.EventAsset;
-using Extend.Network;
-using System.Collections;
-using System.Collections.Generic;
+using AresLuaExtend.Network;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using XLua;

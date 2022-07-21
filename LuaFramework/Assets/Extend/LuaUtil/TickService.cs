@@ -18,12 +18,12 @@ namespace AresLuaExtend.LuaUtil
 
 		public void Destroy()
 		{
-			throw new System.NotImplementedException();
+			
 		}
 
 		public void Initialize()
 		{
-			LuaVM luaVM = CSharpServiceManager.Get<LuaVM>(CSharpServiceManager.ServiceType.LUA_SERIVCE);
+			LuaVM luaVM = CSharpServiceManager.Get<LuaVM>(CSharpServiceManager.ServiceType.LUA_SERVICE);
 			//TODO
 			GetLuaService luaGetService = luaVM.Global.GetInPath<GetLuaService>("");
 			LuaTable luaTickService = luaGetService(2);

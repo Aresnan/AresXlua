@@ -1,4 +1,5 @@
 using AresLuaExtend;
+using AresLuaExtend.Common;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,9 @@ public class EntryPoint : MonoBehaviour
 {   
     void Start()
     {
-        LuaVM vm = new LuaVM();
-        //vm.Initialize();
-        //vm.Default.DoString("require 'base.main'");
-    }
+        LuaVM vm = CSharpServiceManager.Get<LuaVM>(CSharpServiceManager.ServiceType.LUA_SERVICE);
+		vm.StartUp();
+	}
         
     void Update()
     {
