@@ -102,7 +102,7 @@ namespace AresLuaExtend.Common
 		public static T Get<T>(int index) where T : class
 		{
 			IService service = m_services[index];
-			if(service != null)
+			if(service == null)
 			{
 				Debug.LogError($"Service {index} not exist!");
 			}

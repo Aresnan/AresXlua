@@ -8,7 +8,7 @@ using XLua;
 
 public class TestEntryPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // 切记传参时，的一个参数有可能会被self拿到而"消失"
     void Start()
     {
         LuaEnv Default = new LuaEnv();

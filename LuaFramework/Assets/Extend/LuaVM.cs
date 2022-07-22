@@ -89,14 +89,15 @@ namespace AresLuaExtend
 			Default.AddLoader((ref string filename) => LoadFile(ref filename, ".lua"));
 
 			LuaTable result = LoadFileAtPath("PreRequest")[0] as LuaTable;
-			OnInit = result.Get<LuaFunction>("init");
+			OnInit = result.Get<LuaFunction>("Init");
 		}
 
 		public void StartUp()
 		{
 			//Func,最后一个T为返回值
 			//Action类似于Call（即调用OnInit方法）括号里的参数相当于给lua方法传递了一个回调callback
-			OnInit.Action<Func<string, byte[]>>(filename => LoadFile(ref filename, ".lua"));
+			//OnInit.Action<Func<string, byte[]>>(filename => LoadFile(ref filename, ".lua"));
+			OnInit.Action<int>(1);
 			//通过Global里查找_BindingEnv表（lua文件）
 			m_bindingEnv = Default.Global.GetInPath<LuaTable>("_BindingEnv");
 		}
@@ -119,7 +120,7 @@ namespace AresLuaExtend
 
 		public object[] LoadFileAtPath(string luaFileName)
 		{
-			//官方示例DoString("require 'byfile'")，所以不加return也可
+			//官方示例DoString("require 'byfile'")，加return是为了拿到返回的对象
 			object[] result = Default.DoString($"return require '{luaFileName}'");
 			return result;
 		}
@@ -135,12 +136,12 @@ namespace AresLuaExtend
 		}
 		public void Destroy()
 		{
-			throw new NotImplementedException();
+			
 		}
 
 		public void Dispose()
 		{
-			throw new NotImplementedException();
+			
 		}
 	}
 
