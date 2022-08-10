@@ -25,20 +25,20 @@ namespace AresLuaExtend.LuaUtil
 		{
 			LuaVM luaVM = CSharpServiceManager.Get<LuaVM>(CSharpServiceManager.ServiceType.LUA_SERVICE);
 			//获取全局表：_ServiceManager 的方法GetService，与delegate GetLuaService 类型相同，并传参调用
-			GetLuaService luaGetService = luaVM.Global.GetInPath<GetLuaService>("_ServiceManager.GetService");
-			LuaTable luaTickService = luaGetService(2);
-			m_tick = luaTickService.Get<Action>("Tick");
-			m_lateTick = luaTickService.Get<Action>("LateTick");
+			//GetLuaService luaGetService = luaVM.Global.GetInPath<GetLuaService>("_ServiceManager.GetService");
+			//LuaTable luaTickService = luaGetService(2);
+			//m_tick = luaTickService.Get<Action>("Tick");
+			//m_lateTick = luaTickService.Get<Action>("LateTick");
 		}
 
 		public void LateUpdate()
 		{
-			m_lateTick();
+			m_lateTick?.Invoke();
 		}
 
-		void IServiceUpdate.Update()
+		public void Update()
 		{
-			m_tick();
+			m_tick?.Invoke();
 		}
 	}
 }

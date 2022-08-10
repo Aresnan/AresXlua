@@ -87,7 +87,7 @@ namespace AresLuaExtend
 			Lua.OverrideLogFunction(Default.rawL);
 			//设置自定义Loader
 			Default.AddLoader((ref string filename) => LoadFile(ref filename, ".lua"));
-
+			//两种调用方式：1.映射到LuaTable；2.映射到class或者interface
 			LuaTable result = LoadFileAtPath("PreRequest")[0] as LuaTable;
 			OnInit = result.Get<LuaFunction>("Init");
 		}
@@ -97,7 +97,7 @@ namespace AresLuaExtend
 			//Func,最后一个T为返回值
 			//Action类似于Call（即调用OnInit方法）括号里的参数相当于给lua方法传递了一个回调callback
 			//OnInit.Action<Func<string, byte[]>>(filename => LoadFile(ref filename, ".lua"));
-			OnInit.Action<int>(1);
+			OnInit.Action<LuaVM, int>(this, 1);
 			//通过Global里查找_BindingEnv表（lua文件）
 			m_bindingEnv = Default.Global.GetInPath<LuaTable>("_BindingEnv");
 		}
@@ -114,7 +114,7 @@ namespace AresLuaExtend
 			{
 				var text = File.ReadAllText(path);
 				return Encoding.UTF8.GetBytes(text);
-			}			
+			}
 			return null;
 		}
 
@@ -136,12 +136,12 @@ namespace AresLuaExtend
 		}
 		public void Destroy()
 		{
-			
+
 		}
 
 		public void Dispose()
 		{
-			
+
 		}
 	}
 
