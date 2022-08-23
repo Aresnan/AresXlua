@@ -32,9 +32,9 @@ function M:Init(flag)
 		ConfigService = ConfigService
 	})
 
-	-- local Application = require("Game.Application")
-	-- app = Application.new()
-	-- app:Init()
+	local Application = require("Game.Application")
+	app = Application.new()
+	app:Init()
 
 	-- Lua
 	Binding.SetEnvVariable(_G)
