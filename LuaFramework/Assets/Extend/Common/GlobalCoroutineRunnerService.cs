@@ -6,6 +6,7 @@ using XLua;
 
 namespace AresLuaExtend.Common
 {
+	
 	[LuaCallCSharp]
 	public class GlobalCoroutineRunnerService : IService
 	{

@@ -18,6 +18,10 @@ end
 function M:Update()
 end
 
+function M:GetStateName()
+	error("Get State Name Not Implement")
+end
+
 function M:PrepareExit()
 	AssetService.Recycle(self.loaderGO)
 	self.loaderRef:Dispose()

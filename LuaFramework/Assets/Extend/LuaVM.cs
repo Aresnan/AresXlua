@@ -73,7 +73,7 @@ namespace AresLuaExtend
 		public void Initialize()
 		{
 			Default = new LuaEnv();
-			//Ìí¼ÓµÚÈı·½À©Õ¹
+			//æ·»åŠ ç¬¬ä¸‰æ–¹æ‰©å±•
 			Default.AddBuildin("rapidjson", Lua.LoadRapidJson);
 			Default.AddBuildin("chronos", Lua.LoadChronos);
 #if EMMY_CORE_SUPPORT
@@ -85,20 +85,20 @@ namespace AresLuaExtend
 			Default.AddBuildin("lsqlite", Lua.LoadLSqlite3);
 
 			Lua.OverrideLogFunction(Default.rawL);
-			//ÉèÖÃ×Ô¶¨ÒåLoader
+			//è®¾ç½®è‡ªå®šä¹‰Loader
 			Default.AddLoader((ref string filename) => LoadFile(ref filename, ".lua"));
-			//Á½ÖÖµ÷ÓÃ·½Ê½£º1.Ó³Éäµ½LuaTable£»2.Ó³Éäµ½class»òÕßinterface
+			//ä¸¤ç§è°ƒç”¨æ–¹å¼ï¼š1.æ˜ å°„åˆ°LuaTableï¼›2.æ˜ å°„åˆ°classæˆ–è€…interface
 			LuaTable result = LoadFileAtPath("PreRequest")[0] as LuaTable;
 			OnInit = result.Get<LuaFunction>("Init");
 		}
 
 		public void StartUp()
 		{
-			//Func,×îºóÒ»¸öTÎª·µ»ØÖµ
-			//ActionÀàËÆÓÚCall£¨¼´µ÷ÓÃOnInit·½·¨£©À¨ºÅÀïµÄ²ÎÊıÏàµ±ÓÚ¸ølua·½·¨´«µİÁËÒ»¸ö»Øµ÷callback
+			//Func,æœ€åä¸€ä¸ªTä¸ºè¿”å›å€¼
+			//Actionç±»ä¼¼äºCallï¼ˆå³è°ƒç”¨OnInitæ–¹æ³•ï¼‰æ‹¬å·é‡Œçš„å‚æ•°ç›¸å½“äºç»™luaæ–¹æ³•ä¼ é€’äº†ä¸€ä¸ªå›è°ƒcallback
 			//OnInit.Action<Func<string, byte[]>>(filename => LoadFile(ref filename, ".lua"));
 			OnInit.Action<LuaVM, int>(this, 1);
-			//Í¨¹ıGlobalÀï²éÕÒ_BindingEnv±í£¨luaÎÄ¼ş£©
+			//é€šè¿‡Globalé‡ŒæŸ¥æ‰¾_BindingEnvè¡¨ï¼ˆluaæ–‡ä»¶ï¼‰
 			m_bindingEnv = Default.Global.GetInPath<LuaTable>("_BindingEnv");
 		}
 		public void Update()
@@ -120,7 +120,7 @@ namespace AresLuaExtend
 
 		public object[] LoadFileAtPath(string luaFileName)
 		{
-			//¹Ù·½Ê¾ÀıDoString("require 'byfile'")£¬¼ÓreturnÊÇÎªÁËÄÃµ½·µ»ØµÄ¶ÔÏó
+			//å®˜æ–¹ç¤ºä¾‹DoString("require 'byfile'")ï¼ŒåŠ returnæ˜¯ä¸ºäº†æ‹¿åˆ°è¿”å›çš„å¯¹è±¡
 			object[] result = Default.DoString($"return require '{luaFileName}'");
 			return result;
 		}
@@ -133,6 +133,11 @@ namespace AresLuaExtend
 			Debug.Log(str);
 
 			return str;
+		}
+
+		public object[] DoBindingString(string code, string chunkName = "chuck")
+		{
+			return Default.DoString(code, chunkName, m_bindingEnv);
 		}
 		public void Destroy()
 		{

@@ -47,7 +47,12 @@ namespace AresLuaExtend
 
 		public void Initialize()
 		{
+			//StreamingAssets目录下，拷贝到persist目录下
+#if Ares_PROD
+			const string fileName = "SystemSetting_Prod";
+#else
 			const string fileName = "SystemSetting";
+#endif
 			var path = Path.Combine(Application.persistentDataPath, fileName + ".ini");
 			if (!File.Exists(path))
 			{

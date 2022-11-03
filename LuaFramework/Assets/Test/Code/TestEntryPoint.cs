@@ -8,7 +8,7 @@ using XLua;
 
 public class TestEntryPoint : MonoBehaviour
 {
-    // ÇĞ¼Ç´«²ÎÊ±£¬µÄÒ»¸ö²ÎÊıÓĞ¿ÉÄÜ»á±»selfÄÃµ½¶ø"ÏûÊ§"
+    // åˆ‡è®°ä¼ å‚æ—¶ï¼Œç¬¬ä¸€ä¸ªå‚æ•°æœ‰å¯èƒ½ä¼šè¢«selfæ‹¿åˆ°è€Œ"æ¶ˆå¤±"
     void Start()
     {
         LuaEnv Default = new LuaEnv();
