@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configurations>
+  <UIView Guid="91f77fb4-d600-4d14-9be2-01a55432d8e2" Name="Main" UIView="cf1f127c4ee6783419136ef3c3ed6ac0" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="22080539-5920-4157-81b5-7e1ba9cede8d" Name="MockLogin" UIView="0f36cfece41e57c4fbf61018ec110111" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="8a1e7659-506b-4f10-b747-6a40af2fc642" Name="Pray" UIView="0a1ff7b4b9f655c419d872691df88ef3" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="ec7f743e-00a6-45f3-9b0e-6296ba2cb566" Name="Atmosphere" UIView="4c687dc6bffc286449dec3ea9e64f8c7" BackgroundFx="2555196cf4d0e244792984637555dc8c" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="Outside" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="613df945-022b-4825-8e42-25e3631f5a04" Name="JoystickController" UIView="398cec02eb964394a9d223e274050c3b" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="46e87ef2-2b7a-4b2e-993c-5783cd19ab64" Name="NetLoading" UIView="3c3b669f7474cb04f82c1e14db911b81" BackgroundFx="2555196cf4d0e244792984637555dc8c" FullScreen="0" Transition="" AttachLayer="Transition" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="0619630e-719c-4184-b28d-cf43e510b44a" Name="PrayWarning" UIView="7acb6629cc6be044c8d05d524c47858f" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="4358d771-17d8-4c1f-8765-2bb31f6aa73c" Name="Loading" UIView="40dfd9e85a2e22e4c988d3bb533fa3a2" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Transition" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="9c9cd327-42c8-475c-890f-345cbf3325a3" Name="WelcomeMain" UIView="bbb1b9b82d437d84bb1825085d5cda07" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="704199b8-9c0d-4890-9a16-8b9bf4364417" Name="ServerErrorPanel" UIView="e6c241baa437e44488cc7685b453e010" BackgroundFx="2555196cf4d0e244792984637555dc8c" FullScreen="0" Transition="" AttachLayer="MostTop" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="570ad86f-c08b-40c7-8e01-181d775228c1" Name="Clothes" UIView="a73bc9f5eeea7f64a98ebefceea2e5ef" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+  <UIView Guid="200ed007-12b7-4235-ac57-0cb5ff4e0a9a" Name="GiftDetail" UIView="5d1c14ca3a234ad4e8d426b9a9767022" BackgroundFx="" FullScreen="0" Transition="" AttachLayer="Dialog" CloseMethod="None" CloseButtonPath="" FrameRate="60" />
+</Configurations>

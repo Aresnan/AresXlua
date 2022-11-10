@@ -1,9 +1,8 @@
-using AresLuaExtend.Asset;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Unity.Plastic.Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace AresLuaExtend.Common
@@ -157,5 +156,85 @@ namespace AresLuaExtend.Common
 		}
 
 		#endregion
+
+		#region 服务
+
+		public bool CompareVersion(string key)
+		{
+			if (_localVersionDic.ContainsKey(key))
+			{
+				return _localVersionDic[key].CompareTo(_serverVersionDic[key]) < 0;
+			}
+			else
+			{
+				Debug.LogError("VersionDic not contains key " + key);
+				return false;
+			}
+		}
+
+		public void SaveVersion(string key)
+		{
+			if (_localVersionDic.ContainsKey(key))
+			{
+				if (_localVersionDic[key] == _serverVersionDic[key])
+				{
+					Debug.LogWarning("local equal to server version not need to save file");
+					return;
+				}
+
+				_localVersionDic[key] = _serverVersionDic[key];
+			}
+			else
+			{
+				Debug.LogError("VersionDic not contains key " + key);
+			}
+			string json = JObject.FromObject(_localVersionDic).ToString(Formatting.None);
+			File.WriteAllText(VersionPath, json);
+		}
+
+		public string GetDeviceInfo()
+		{
+			return _deviceInfo;
+		}
+
+		public static string GetVersion(string key)
+		{
+			if (_localVersionDic.ContainsKey(key))
+			{
+				return _localVersionDic[key].ToString();
+			}
+			else
+			{
+				Debug.LogError("VersionDic not contains key " + key);
+				return "";
+			}
+		}
+
+		//解析版本号服务器数据
+		public void ParseServerInfo(string info)
+		{
+			var serverInfo = JObject.Parse(info);
+
+			Debug.Log(info);
+			var PlatformVersion = Version.Parse(serverInfo["UnityVersion"]?.ToString() ?? string.Empty);
+			var LuaVersion = Version.Parse(serverInfo["LuaVersion"]?.ToString() ?? string.Empty);
+			var ResVersion = Version.Parse(serverInfo["ResourceVersion"]?.ToString() ?? string.Empty);
+			luaUrl = serverInfo["LuaUrl"]?.ToString();
+			luaFileMd5 = serverInfo["LuaFileMd5"]?.ToString();
+			AddOrUpdate(_serverVersionDic, PLATFROM_KEY, PlatformVersion);
+			AddOrUpdate(_serverVersionDic, LUA_KEY, LuaVersion);
+			AddOrUpdate(_serverVersionDic, RES_KEY, ResVersion);
+
+			ResUrl = serverInfo["ResourceUrl"]?.ToString();
+			Debug.LogWarning(
+				$"localPlatformVersion {_localVersionDic[PLATFROM_KEY]} _localLuaVersion {_localVersionDic[LUA_KEY]} _localResVersion {_localVersionDic[RES_KEY]}" +
+				$" serverPlatformVersion {_serverVersionDic[PLATFROM_KEY]} serverLuaVersion {_serverVersionDic[LUA_KEY]} serverResVersion {_serverVersionDic[RES_KEY]}");
+		}
+		#endregion
+		//进入lua的入口
+		public void StartLua()
+		{
+
+		}
 	}
 }

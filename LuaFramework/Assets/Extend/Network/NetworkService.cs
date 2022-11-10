@@ -5,6 +5,14 @@ using UnityEngine;
 
 namespace AresLuaExtend.Network
 {
+	public enum DownloadStatus
+	{
+		Success,
+		Progressing,
+		Wait,
+		Failed,
+		Canceled
+	}
 	//TODO
 	public class NetworkService : IService, IServiceUpdate
 	{
